@@ -1,2 +1,2 @@
 # Fake Name Generator
-To do :)
+This is the source code of [FakeNameGeneratorBot](https://telegram.me/FakeNameGeneratorBot)
