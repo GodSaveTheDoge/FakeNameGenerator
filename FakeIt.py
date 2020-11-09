@@ -73,7 +73,7 @@ allowed_countries = [
     "ug",
     "ua",
     "ve",
-    "vn"
+    "vn",
 ]
 
 
@@ -82,7 +82,7 @@ def decodeEmail(e):
     k = int(e[:2], 16)
 
     for i in range(2, len(e) - 1, 2):
-        de += chr(int(e[i:i + 2], 16) ^ k)
+        de += chr(int(e[i : i + 2], 16) ^ k)
 
     return de
 
@@ -91,7 +91,7 @@ def getdata(country):
     r = requests.get("https://fake-it.ws/{}".format(country))
 
     if not r.ok:
-        logging.error("Country \"{}\" is not valid".format(country))
+        logging.error('Country "{}" is not valid'.format(country))
         return {"Error": "An error occured"}
 
     soup = BeautifulSoup(r.text, "lxml")
@@ -101,9 +101,7 @@ def getdata(country):
         text = d.text
 
         if text == "[email\xa0protected]":
-            text = decodeEmail(
-                d.findChild("a").get_attribute_list("data-cfemail")[0]
-            )
+            text = decodeEmail(d.findChild("a").get_attribute_list("data-cfemail")[0])
         data.append(text)
 
     keys = []
