@@ -4,7 +4,7 @@ bs4==0.0.1
 certifi==2020.11.8
 chardet==3.0.4
 idna==2.10
-lxml==4.6.1
+lxml==4.6.2
 pyaes==1.6.1
 Pyrogram==1.0.7
 PySocks==1.7.1
